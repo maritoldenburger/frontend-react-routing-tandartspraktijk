@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Whitening from './pages/whitening/Whitening.jsx';
 import Home from './pages/home/Home.jsx';
 import Appointments from './pages/appointments/Appointments.jsx';
@@ -10,10 +11,12 @@ function App() {
     return (
         <>
             <Navigation />
-            <Home />
-            <Whitening />
-            <Appointments />
-            <Cavities />
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/gaatjes" element={<Cavities/>}/>
+                <Route path="/afspraken" element={<Appointments/>}/>
+                <Route path="/tanden-bleken" element={<Whitening/>}/>
+            </Routes>
         </>
     );
 }
